@@ -17,3 +17,14 @@ sbt -Dheroku_name=<HEROKU_NAME> clean compile stage deployHeroku
 ```
 
 Note: deploying via git (`git push heroku master`) will *BREAK* this application. 
+
+## Environment
+This application uses a few environment variables which can be overriden.
+A `.env` file can be used as follows:
+```
+cp .env.sample .env
+```
+and configure your custom values from there.
+
+In case of config running on Heroku, you can also set environment variables
+via the Heroku CLI (`heroku config:add`) or via the Heroku Dashboard.
