@@ -27,4 +27,5 @@ cp .env.sample .env
 and configure your custom values from there.
 
 In case of config running on Heroku, you can also set environment variables
-via the Heroku CLI (`heroku config:add`) or via the Heroku Dashboard.
+via the `herokuConfigVars` in the `build.sbt`, via the Heroku CLI (`heroku config:add`) 
+or via the Heroku Dashboard.

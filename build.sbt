@@ -11,7 +11,6 @@ lazy val app = (project in file(".")).enablePlugins(JavaAppPackaging)
     herokuAppName in Compile := sys.props.getOrElse("heroku_name", "secret"),
     herokuJdkVersion in Compile := "1.8",
     herokuConfigVars in Compile := Map(
-      "HTTP_INTERFACE" -> "0.0.0.0"
     ),
     herokuProcessTypes in Compile := Map(
       "web" -> s"target/universal/stage/bin/numberwang-scala -Dhttp.port=$${PORT}"
