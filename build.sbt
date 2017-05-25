@@ -1,5 +1,5 @@
 lazy val commonSettings = Seq(
-  name := "numberwang-scala",
+  name := "numberwang-akka-http",
   organization := "xyz.casperkoning",
   version := "1.0-SNAPSHOT",
   scalaVersion := "2.11.8"
@@ -13,7 +13,7 @@ lazy val app = (project in file(".")).enablePlugins(JavaAppPackaging)
     herokuConfigVars in Compile := Map(
     ),
     herokuProcessTypes in Compile := Map(
-      "web" -> s"target/universal/stage/bin/numberwang-scala -Dhttp.port=$${PORT}"
+      "web" -> s"target/universal/stage/bin/numberwang-akka-http -Dhttp.port=$${PORT}"
     )
   )
 
