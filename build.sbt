@@ -26,9 +26,15 @@ libraryDependencies ++= {
   // test
   val akkaHttpTestKit   = "com.typesafe.akka" %% "akka-http-testkit"    % "10.0.1" % Test
 
+  // runtime
+  val akkaSlf4j         = "com.typesafe.akka" %% "akka-slf4j"           % "2.4.19" % Runtime
+  val logback           = "ch.qos.logback"    %  "logback-classic"      % "1.2.3" % Runtime
+
   Seq(
     akkaHttp,
     akkaHttpSprayJson,
-    akkaHttpTestKit
+    akkaHttpTestKit,
+    akkaSlf4j,
+    logback
   )
 }
