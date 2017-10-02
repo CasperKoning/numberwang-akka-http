@@ -2,7 +2,7 @@ lazy val commonSettings = Seq(
   name := "numberwang-akka-http",
   organization := "xyz.casperkoning",
   version := "1.0-SNAPSHOT",
-  scalaVersion := "2.11.8"
+  scalaVersion := "2.12.3"
 )
 
 lazy val app = (project in file(".")).enablePlugins(JavaAppPackaging)
