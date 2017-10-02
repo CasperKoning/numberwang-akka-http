@@ -18,8 +18,8 @@ class NumberwangService(val settings: Settings)(implicit actorSystem: ActorSyste
       handler = routes,
       interface = settings.Http.interface,
       port = settings.Http.port
-    ) onSuccess {
-      case binding => serverBinding = Some(binding)
+    ) foreach {
+      binding => serverBinding = Some(binding)
     }
   }
 
