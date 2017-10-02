@@ -13,7 +13,7 @@ object Main extends App {
   implicit val system = ActorSystem("numberwang", config)
   implicit val executionContext = system.dispatcher
   implicit val materializer = ActorMaterializer()
-  val service = new NumberwangService(config)
+  val service = new NumberwangService(Settings(config))
 
   service.start()
 
