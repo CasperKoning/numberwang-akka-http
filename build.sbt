@@ -20,11 +20,11 @@ lazy val app = (project in file(".")).enablePlugins(JavaAppPackaging)
 
 libraryDependencies ++= {
   // compile
-  val akkaHttp          = "com.typesafe.akka" %% "akka-http"            % "10.0.1"
-  val akkaHttpSprayJson = "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.1"
+  val akkaHttp          = "com.typesafe.akka" %% "akka-http"            % "10.0.10"
+  val akkaHttpSprayJson = "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.10"
 
   // test
-  val akkaHttpTestKit   = "com.typesafe.akka" %% "akka-http-testkit"    % "10.0.1" % Test
+  val akkaHttpTestKit   = "com.typesafe.akka" %% "akka-http-testkit"    % "10.0.10" % Test
 
   // runtime
   val akkaSlf4j         = "com.typesafe.akka" %% "akka-slf4j"           % "2.4.19" % Runtime
