@@ -5,6 +5,8 @@ import scala.concurrent._
 import scala.util._
 
 import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
+import scala.xml._
 
 trait ApiRoutes {
   def routes()(implicit ec: ExecutionContext) = 
@@ -29,9 +31,30 @@ trait ApiRoutes {
           case Failure(ex) ⇒ complete("We failed to process your asychronous POST")
         }
       }
+    } ~
+    path("post_xml") {
+      post {
+        entity(as[NodeSeq]) { xml ⇒
+          complete(s"That was XML: $xml")
+        }
+      }
+    } ~ 
+    path("post_promise") {
+      post {
+        onComplete(doPromiseWork()) {
+          case Success(_) ⇒ complete("That was an asynchronous POST involving promises")
+          case Failure(ex) ⇒ complete("We failed to process your asychronous POST involving promises")
+        }
+      }
     }
 
   private def doAsynchronousWork()(implicit ec: ExecutionContext): Future[Unit] = Future {
     (): Unit
+  }
+
+  private def doPromiseWork()(implicit ec: ExecutionContext): Future[Unit] = {
+    val p = Promise[Unit]
+    p.success((): Unit)
+    p.future
   }
 }

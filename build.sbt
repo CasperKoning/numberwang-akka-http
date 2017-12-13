@@ -21,6 +21,7 @@ lazy val app = (project in file(".")).enablePlugins(JavaAppPackaging)
 libraryDependencies ++= {
   // compile
   val akkaHttp          = "com.typesafe.akka" %% "akka-http"            % "10.0.10"
+  val akkaHttpXml       = "com.typesafe.akka" %% "akka-http-xml"        % "10.0.10"
   val akkaHttpSprayJson = "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.10"
 
   // test
@@ -32,6 +33,7 @@ libraryDependencies ++= {
 
   Seq(
     akkaHttp,
+    akkaHttpXml,
     akkaHttpSprayJson,
     akkaHttpTestKit,
     akkaSlf4j,
