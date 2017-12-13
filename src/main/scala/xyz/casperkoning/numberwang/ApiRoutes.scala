@@ -52,6 +52,14 @@ trait ApiRoutes {
       post {
         complete(HttpResponse(StatusCodes.OK, entity = "This is a custom response"))
       }
+    } ~ 
+    path("post_chained") {
+      post {
+        onComplete(doChainedWork()) {
+          case Success(_) ⇒ complete("That was an asynchronous POST involving future chaining")
+          case Failure(ex) ⇒ complete("We failed to process your asychronous POST involving future chaining")
+        }
+      }
     }
 
   private def doAsynchronousWork()(implicit ec: ExecutionContext): Future[Unit] = Future {
@@ -62,5 +70,14 @@ trait ApiRoutes {
     val p = Promise[Unit]
     p.success((): Unit)
     p.future
+  }
+
+  private def doChainedWork()(implicit ec: ExecutionContext): Future[Unit] = {
+    Future.fromTry { Try {
+        (): Unit
+      }
+    }.flatMap { _ =>
+      doPromiseWork()
+    }
   }
 }
