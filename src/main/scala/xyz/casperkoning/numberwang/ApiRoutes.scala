@@ -5,6 +5,7 @@ import scala.concurrent._
 import scala.util._
 
 import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.model._
 import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
 import scala.xml._
 
@@ -45,6 +46,11 @@ trait ApiRoutes {
           case Success(_) ⇒ complete("That was an asynchronous POST involving promises")
           case Failure(ex) ⇒ complete("We failed to process your asychronous POST involving promises")
         }
+      }
+    } ~
+    path("post_custom_response") {
+      post {
+        complete(HttpResponse(StatusCodes.OK, entity = "This is a custom response"))
       }
     }
 
