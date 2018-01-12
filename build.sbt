@@ -25,6 +25,7 @@ libraryDependencies ++= {
 
   // test
   val akkaHttpTestKit   = "com.typesafe.akka" %% "akka-http-testkit"    % "10.0.10" % Test
+  val scalaTest         = "org.scalatest"     %% "scalatest"            % "3.0.4" % Test
 
   // runtime
   val akkaSlf4j         = "com.typesafe.akka" %% "akka-slf4j"           % "2.4.20" % Runtime
@@ -34,6 +35,7 @@ libraryDependencies ++= {
     akkaHttp,
     akkaHttpSprayJson,
     akkaHttpTestKit,
+    scalaTest,
     akkaSlf4j,
     logback
   )

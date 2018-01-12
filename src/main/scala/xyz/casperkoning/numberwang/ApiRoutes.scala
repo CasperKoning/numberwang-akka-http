@@ -11,7 +11,7 @@ trait ApiRoutes {
     path("get") {
      get {
       complete {
-        "That was a GET"
+        Util.constructGreeting("world")
       }
      }
     } ~
